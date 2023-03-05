@@ -1,4 +1,4 @@
-# Predict-hand-gestures-using-CNN-Python-version
+# Predict hand gestures using CNN (Python version)
 ## 研究目的
 * 在VR、AR等技術發揚光大的現代，預測手勢是缺一不可之要素。而若想要實做手勢識別的功能，目前有許多方式可以達到此效果，EMG就是其中一項。
 * EMG(肌電圖；英文全名為Electromyography)，是一種診斷醫學技術，主要用於評估和記錄骨骼肌產生的電位活動。當肌肉細胞被電或神經刺激時，EMG可以檢測它們產生的電位，進而可以對訊號進行分析以檢測醫療異常或進行運動力學分析。在現今科技中，肌電圖也被用作手勢識別的中間元素，透過將手部動作訊號輸入電腦並加以分析，可以達到許多實際功能，例如可運用在 VR、AR等領域中。
