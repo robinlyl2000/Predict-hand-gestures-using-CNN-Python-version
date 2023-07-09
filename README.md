@@ -20,7 +20,7 @@
 ## 資料前處理
 1. 首先，由於原始資料過大，Colab無法處理，因此我自己將依照36位受試者分割成`S01.csv`至`S36.csv`。
 2. 接著，每筆原始訊號包含了所有手勢，因此要根據不同手勢將訊號個別抓出來。
-    * 下圖為單一訊號不同手勢之情況<p align="center"><img height="70%" width="70%" src="https://i.imgur.com/RLRN31A.png"/></p>
+    * 下圖為單一訊號不同手勢之情況<p align="center"><img height="70%" width="70%" src="README_image/RLRN31A.png"/></p>
 3. 因為同一手勢的訊號長度不同，因此統一取訊號的前1050筆資料點，並依序透過調整基準線、使用帶通濾波器、取絕對值與使用低通濾波器來過濾訊號。
     <p align="center"><img height="40%" width="40%" src="https://i.imgur.com/SE3zCcE.png" style="display:block; margin:auto;" /> </p>
 4. 由於本研究將採用 2D 的 CNN，因此我將每次測試 Channel 1 至 Channel 8 的訊號串在一起，進而產生出一筆 $1050\times 8$ 的 X data。
