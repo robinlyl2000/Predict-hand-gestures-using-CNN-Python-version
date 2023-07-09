@@ -6,7 +6,7 @@
 ## 資料來源
 * 此研究之資料是由Kaggle網頁之 “[EMG Signal for gesture recognition](https://www.kaggle.com/datasets/sojanprajapati/emg-signal-for-gesture-recognition)" 資料集獲取；而網頁中的Induction中有提到，該資料集是源自於Sergey et al .(2018) 之 “[Latent Factors Limiting the Performance of sEMG-Interfaces](https://www.mdpi.com/1424-8220/18/4/1122/htm)”一文研究過程產生的資料。
 * 在上述提到之論文中，研究者要求受試者配戴一手環，該手環上配有8個EMG感測器(如下圖)。接著，研究者會讓受試者比劃出不同手勢，藉此蒐集到8項來自不同感測器的訊號。
-<p align="center"><img src="https://i.imgur.com/QxYfx7j.png"/></p>
+<p align="center"><img src="README_image/68747470733a2f2f692e696d6775722e636f6d2f5178596678376a2e706e67.png"/></p>
 
 ## 原始資料分析
 * 資料筆數 : 共420萬筆資料左右
@@ -22,16 +22,16 @@
 2. 接著，每筆原始訊號包含了所有手勢，因此要根據不同手勢將訊號個別抓出來。
     * 下圖為單一訊號不同手勢之情況<p align="center"><img height="70%" width="70%" src="README_image/RLRN31A.png"/></p>
 3. 因為同一手勢的訊號長度不同，因此統一取訊號的前1050筆資料點，並依序透過調整基準線、使用帶通濾波器、取絕對值與使用低通濾波器來過濾訊號。
-    <p align="center"><img height="40%" width="40%" src="https://i.imgur.com/SE3zCcE.png" style="display:block; margin:auto;" /> </p>
+    <p align="center"><img height="60%" width="60%" src="README_image/SE3zCcE.png" style="display:block; margin:auto;" /> </p>
 4. 由於本研究將採用 2D 的 CNN，因此我將每次測試 Channel 1 至 Channel 8 的訊號串在一起，進而產生出一筆 $1050\times 8$ 的 X data。
     * 下圖為隨意取六種手勢各一筆訊號出來，並將其視覺化
-    <p align="center"><img src="https://i.imgur.com/CxCOe0A.png"/></p>
+    <p align="center"><img src="README_image/CxCOe0A.png"/></p>
 5. 最後將資料整理成適合丟入 CNN model 的模式 : 
     * 利用 `train_test_split()` 將資料切割成 `X_train`、`X_test`、`Y_train` 與 `Y_test` (切割比例為 train = 80%、test = 20%)
     * 再對 `Y_train` 與 `Y_test` 做 One-hot encoding
 ## 建立 & 訓練 CNN Model
 * CNN 結構如下 : 
-    <p align="center"><img height="40%" width="40%" src="https://i.imgur.com/eQ103Yw.png"/></p>
+    <p align="center"><img height="40%" width="40%" src="README_image/68747470733a2f2f692e696d6775722e636f6d2f655131303359772e706e67.png"/></p>
 * 模型建立細節 : 
     * Total parameters : 54,498
     * Optimizer 採用 Adam
@@ -43,8 +43,8 @@
     * Batch_size = 15
 ## 評估訓練結果
 * 比較訓練過程中，Epochs 數與 Accuracy 的關係 : 
-    <p align="center"><img height="40%" width="40%" src="https://i.imgur.com/2fY6U0D.png"/></p>
+    <p align="center"><img height="40%" width="40%" src="README_image/68747470733a2f2f692e696d6775722e636f6d2f326659365530442e706e67.png"/></p>
 * 比較訓練過程中，Epochs 數與 Loss 的關係 : 
-    <p align="center"><img height="40%" width="40%" src="https://i.imgur.com/jdy6SqE.png"/></p>
+    <p align="center"><img height="40%" width="40%" src="README_image/68747470733a2f2f692e696d6775722e636f6d2f6a6479365371452e706e67.png"/></p>
 * 混淆矩陣 : 
-    <p align="center"><img height="40%" width="40%" src="https://i.imgur.com/InVevBy.png"/></p>
+    <p align="center"><img height="40%" width="40%" src="README_image/68747470733a2f2f692e696d6775722e636f6d2f496e56657642792e706e67.png"/></p>
